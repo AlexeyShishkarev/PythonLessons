@@ -18,9 +18,7 @@ def QuikSort(array):
         greatest = [i for i in array[1:] if i > pivot]
 
         return QuikSort(less) + [pivot] + QuikSort(greatest)
-
-
-def MergeSort(array):
+    list ()def MergeSort(array):
     if len(array) > 1:
         mid = len(array) // 2
         left = array[:mid]
