@@ -55,6 +55,14 @@ def search():
             result[i] = contact
     return result
 
+def delete_contack():
+    result = search()
+    show_contacs(result)
+    index = int(input('Введите ID для удаления: '))
+    del_cnt = phone_book.pop(index)
+    print(f'Контакт {del_cnt} успешно удален!')
+    print('=' * 200 + '\n')
+
 def add_contact():
     uid = max(list(phone_book.keys())) + 1
     name = input('Введите имя контакта: ')
@@ -82,7 +90,7 @@ while True:
         case 6:
             pass
         case 7:
-            pass
+            delete_contack()
         case 8:
             print('До скорой встречи!')
             break
