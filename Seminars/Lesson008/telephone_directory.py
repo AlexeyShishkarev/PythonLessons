@@ -49,13 +49,15 @@ def menu() -> int:
 
 def search():
     result = {}
-    word = input('Ищем: ')
-    for i, contact in phone_book.items():
-        if word.lower() in ' '.join(list(contact.values())).lower():
-            result[i] = contact
-    if len(result) == 0:
-        print('Такого контакта нет!')
-    return result
+    while True:
+        word = input('Ищем: ')
+        for i, contact in phone_book.items():
+            if word.lower() in ' '.join(list(contact.values())).lower():
+                result[i] = contact
+                return result
+        if len(result) == 0:
+            print('Такого контакта нет!')
+
 
 def change_contakt():
     result = search()
@@ -85,9 +87,9 @@ def change_contakt():
                     show_contacs(result)
                 case 'exit':
                     break
+            print('\nКонтакт успешно изменен!')
         else:
             print('Такого поля нет!!!')
-
 
 def delete_contack():
     result = search()
