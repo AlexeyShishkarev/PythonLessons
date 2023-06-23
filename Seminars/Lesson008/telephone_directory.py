@@ -63,33 +63,40 @@ def change_contakt():
     result = search()
     show_contacs(result)
     index = int(input('Введите ID для изменения: '))
+    #Если введенный ID отличается от тех что были найдены:
+    key_int = list(key for key, value in result.items())
+    if index in key_int:
+        while True:
+            select = input('Какое поле редактировать? (имя, телефон, комментарий): \nили выход для выхода в предыдущее меню')
+            if select.isdigit():
+                print('Введите название поля, а не число!')
+            elif (select.lower() == 'имя' or
+                  select.lower() == 'телефон' or
+                  select.lower() == 'комментарий' or
+                  select.lower() == 'выход'):
+                match select:
+                    case 'имя':
+                        phone_book[index]['name'] = input('Введите новое имя: ')
+                        print('\nКонтакт успешно изменен!')
+                        show_contacs(result)
+                    case 'телефон':
+                        phone_book[index]['phone'] = input('Введите новый номер: ')
+                        print('\nКонтакт успешно изменен!')
+                        show_contacs(result)
+                    case 'комментарий':
+                        phone_book[index]['comment'] = input('Введите новый комментарий: ')
+                        print('\nКонтакт успешно изменен!')
+                        show_contacs(result)
+                    case 'выход':
+                        break
+                print('\nКонтакт успешно изменен!')
+            else:
+                print('Такого поля нет!!!')
+    else:
+        print('Введенный ID отличается от того что есть в списке!')
+        change_contakt()
 
-    while True:
-        select = input('Какое поле редактировать? (имя, телефон, комментарий): \nили exit для выхода в предыдущее меню')
-        if select.isdigit():
-            print('Введите название поля, а не число!')
-        elif (select.lower() == 'имя' or
-              select.lower() == 'телефон' or
-              select.lower() == 'комментарий' or
-              select.lower() == 'exit'):
-            match select:
-                case 'имя':
-                    phone_book[index]['name'] = input('Введите новое имя: ')
-                    print('\nКонтакт успешно изменен!')
-                    show_contacs(result)
-                case 'телефон':
-                    phone_book[index]['phone'] = input('Введите новый номер: ')
-                    print('\nКонтакт успешно изменен!')
-                    show_contacs(result)
-                case 'комментарий':
-                    phone_book[index]['comment'] = input('Введите новый комментарий: ')
-                    print('\nКонтакт успешно изменен!')
-                    show_contacs(result)
-                case 'exit':
-                    break
-            print('\nКонтакт успешно изменен!')
-        else:
-            print('Такого поля нет!!!')
+
 
 def delete_contack():
     result = search()
