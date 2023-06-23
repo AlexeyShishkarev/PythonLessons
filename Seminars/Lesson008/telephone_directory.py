@@ -53,6 +53,8 @@ def search():
     for i, contact in phone_book.items():
         if word.lower() in ' '.join(list(contact.values())).lower():
             result[i] = contact
+    if len(result) == 0:
+        print('Такого контакта нет!')
     return result
 
 def change_contakt():
