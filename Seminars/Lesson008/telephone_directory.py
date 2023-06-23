@@ -55,6 +55,38 @@ def search():
             result[i] = contact
     return result
 
+def change_contakt():
+    result = search()
+    show_contacs(result)
+    index = int(input('Введите ID для изменения: '))
+
+    while True:
+        select = input('Какое поле редактировать? (имя, телефон, комментарий): \nили exit для выхода в предыдущее меню')
+        if select.isdigit():
+            print('Введите название поля, а не число!')
+        elif (select.lower() == 'имя' or
+              select.lower() == 'телефон' or
+              select.lower() == 'комментарий' or
+              select.lower() == 'exit'):
+            match select:
+                case 'имя':
+                    phone_book[index]['name'] = input('Введите новое имя: ')
+                    print('\nКонтакт успешно изменен!')
+                    show_contacs(result)
+                case 'телефон':
+                    phone_book[index]['phone'] = input('Введите новый номер: ')
+                    print('\nКонтакт успешно изменен!')
+                    show_contacs(result)
+                case 'комментарий':
+                    phone_book[index]['comment'] = input('Введите новый комментарий: ')
+                    print('\nКонтакт успешно изменен!')
+                    show_contacs(result)
+                case 'exit':
+                    break
+        else:
+            print('Такого поля нет!!!')
+
+
 def delete_contack():
     result = search()
     show_contacs(result)
@@ -88,7 +120,7 @@ while True:
             result = search()
             show_contacs(result)
         case 6:
-            pass
+            change_contakt()
         case 7:
             delete_contack()
         case 8:
