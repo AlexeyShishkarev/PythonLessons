@@ -8,7 +8,7 @@ def start():
         match select:
             case 1:
                 if modul.open_file():
-                   view.print_message(text.load_successful)
+                    view.print_message(text.load_successful)
                 else:
                     view.print_message(text.error_load)
             case 2:
@@ -31,8 +31,5 @@ def start():
                 modul.change(word)
             case 7:
                 word = view.delete_word()
-                delete_cnt = modul.delete(word)
-
-
             case 8:
                 break
