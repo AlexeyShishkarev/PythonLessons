@@ -32,8 +32,7 @@ def start():
             case 7:
                 word = view.delete_word()
                 delete_cnt = modul.delete(word)
-                view.print_message(text.delete_cnt(delete_cnt.get('name'),
-                                                   delete_cnt.get('comment')))
+
 
             case 8:
                 break

@@ -47,10 +47,17 @@ def search(word: str) -> dict[int:dict[str, str]]:
 
 def delete(word: str) -> dict[int:dict[str, str]]:
     result = search(word)
-    view.show_contacts(result, text.empty_search(word))
-    index = view.index_delete()
-    delete_contact = phone_book.pop(index)
-    return delete_contact
+    if result:
+        view.show_contacts(result, text.empty_search(word))
+        index = view.index_delete()
+        delete_contact = phone_book.pop(index)
+        view.print_message(text.delete_cnt(delete_contact.get('name'),
+                                           delete_contact.get('comment')))
+        return delete_contact
+
+
+
+
 
 
 def change(word: str) -> dict[int:dict[str, str]]:

@@ -55,7 +55,7 @@ def search_word() -> str:
 
 
 def delete_word() -> str:
-    return input(text.delete_word)
+    return input(text.search_word)
 
 
 def index_delete():
