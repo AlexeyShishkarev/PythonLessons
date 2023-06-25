@@ -27,7 +27,8 @@ def start():
                 result = modul.search(word)
                 view.show_contacts(result, text.empty_search(word))
             case 6:
-                pass
+                word = view.search_word()
+                modul.change(word)
             case 7:
                 word = view.delete_word()
                 delete_cnt = modul.delete(word)

@@ -1,5 +1,6 @@
 import text
 
+
 def menu() -> int:
     print(text.main_menu[0])
     for i in range(1, len(text.main_menu)):
@@ -57,10 +58,26 @@ def delete_word() -> str:
     return input(text.delete_word)
 
 
-def index_delete() -> int:
+def index_delete():
     return input(text.index_delete)
 
 
+def index_change():
+    return input(text.index_change)
 
 
+def change_field():
+    return input(text.change_fld).lower()
+
+
+def new_name():
+    return input(text.new_name)
+
+
+def new_phone():
+    return input(text.new_phone)
+
+
+def new_comment():
+    return input(text.new_comment)
 
