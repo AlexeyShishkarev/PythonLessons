@@ -96,8 +96,6 @@ def change_contakt():
         print('Введенный ID отличается от того что есть в списке!')
         change_contakt()
 
-
-
 def delete_contack():
     result = search()
     show_contacs(result)
