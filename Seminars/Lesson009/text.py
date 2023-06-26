@@ -34,8 +34,9 @@ new_name = 'Введите новое имя: '
 new_phone = 'Введите новый номер: '
 new_comment = 'Введите новый коммент: '
 
+change_confirm = 'Есть не сохраненные изменения! Сохранить? (да/нет): '
 
-
+goodbay = 'Грядет апокалипсис!'
 
 def add_successful(name: str) -> str:
     return f'Контакт {name} успешно добавлен!'
@@ -51,6 +52,8 @@ def empty_search(word: str) -> str:
 
 def change_field(word: str) -> str:
     return f'Поле {word} успешно изменено!'
+
+
 
 
 

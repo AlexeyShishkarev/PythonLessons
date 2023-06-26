@@ -18,9 +18,9 @@ def show_contacts(book: dict[int:dict[str,str]], message):
         max_phone = []
         max_comment = []
         for contact in book.values():
-            max_name.append(len(contact.get('name')))
-            max_phone.append(len(contact.get('phone')))
-            max_comment.append(len(contact.get('comment')))
+            max_name.append(len(contact.get("name")))
+            max_phone.append(len(contact.get("phone")))
+            max_comment.append(len(contact.get("comment")))
         size_name = max(max_name)
         size_phone = max(max_phone)
         size_comment = max(max_comment)
@@ -80,4 +80,8 @@ def new_phone():
 
 def new_comment():
     return input(text.new_comment)
+
+
+def change_confirm():
+    return input(text.change_confirm)
 
