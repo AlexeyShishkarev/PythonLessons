@@ -13,6 +13,7 @@ while number1 != 0:
     result += number1 % 10
     number1 //= 10
 print('Сумма чисел числа', number, ': ', result)
+print("Hello, world!")
 
 
 
