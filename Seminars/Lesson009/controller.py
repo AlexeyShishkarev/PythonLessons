@@ -3,7 +3,7 @@ import view
 import modul
 
 def start():
-    pb = modul.PhoneBook()
+    pb = modul.Notes()
     while True:
         select = view.menu()
         match select:

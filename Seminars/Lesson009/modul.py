@@ -3,32 +3,15 @@ import text
 import view
 
 
-# class Contact:
-#         def __init__(self, name: str, phone: str, comment: str):
-#             self.name = name
-#             self.phone = phone
-#             self.comment = comment
-#
-#
-#         def to_dict(self):
-#             return {'name': self.name, 'phone': self.phone, 'comment': self.comment}
-#
-#
-#         def __repr__(self):
-#             return f'{self.name} {self.phone} {self.comment}'
-#
-#
-#         def update(self, new):
-#             self.name = new.name if new.name else self.name
-#             self.phone = new.phone if new.phone else self.phone
-#             self.comment = new.comment if new.comment else self.comment
 
-class PhoneBook:
 
-    def __init__(self, path: str = 'phones.json'):
+class Notes:
+
+    def __init__(self, path: str = 'Notes.json'):
         self.contact: dict = {}
         self.not_changed = {}
         self.path = path
+
 
 
     def get(self, index: int | None = None):
@@ -92,15 +75,15 @@ class PhoneBook:
             index = view.index_change()
             name_field = view.change_field()
             match name_field:
-                case text.name_text:
+                case '1':
                     self.contact[index]['name'] = view.new_name()
                     view.print_message(text.change_field(text.name_text))
-                case text.phone_text:
-                    self.contact[index]['phone'] = view.new_phone()
-                    view.print_message(text.change_field(text.phone_text))
-                case text.comment_text:
+                case '2':
                     self.contact[index]['comment'] = view.new_comment()
                     view.print_message(text.change_field(text.comment_text))
+
+                case _:
+                    view.print_message(text.error_case_change)
 
 
     def chech_on_exit(self):
