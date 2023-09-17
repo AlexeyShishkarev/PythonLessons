@@ -4,6 +4,7 @@ import modul
 
 def start():
     pb = modul.Notes()
+    pb.open_file()
     while True:
         select = view.menu()
         match select:

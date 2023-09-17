@@ -47,6 +47,8 @@ class Notes:
     def add_contact(self, new: dict[str, str]):
         contact = {self.check_id(): new}
         self.contact.update(contact)
+        # self.save_file()
+        # self.open_file()
 
 
     def search(self, word: str) -> dict[int:dict[str, str]]:
@@ -62,6 +64,7 @@ class Notes:
         if result:
             view.show_contacts(result, text.empty_search(word))
             index = view.index_delete()
+            # print(self.contact)
             delete_contact = self.contact.pop(index)
             view.print_message(text.delete_cnt(delete_contact.get('name'),
                                                delete_contact.get('comment')))
@@ -69,6 +72,7 @@ class Notes:
 
 
     def change(self, word: str) -> dict[int:dict[str, str]]:
+
         result = self.search(word)
         view.show_contacts(result, text.empty_search(word))
         if result:
