@@ -47,8 +47,8 @@ class Notes:
     def add_contact(self, new: dict[str, str]):
         contact = {self.check_id(): new}
         self.contact.update(contact)
-        # self.save_file()
-        # self.open_file()
+        self.save_file()
+        self.open_file()
 
 
     def search(self, word: str) -> dict[int:dict[str, str]]:
